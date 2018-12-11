@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>User</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Accounts Page</h1>
+    <p><a style="color: #4651ab" href="/" th:href="@{/}">Back to home page</a></p>
+
+
+
+    <div c  lass="container" ng-app="sortApp" ng-controller="mainController">
+
+
+
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    <input id="search" type="text" class="form-control" placeholder="Search mobile" >
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered table-striped">
+
+            <thead>
+            <tr>
+                <td>
+                    <a href="#" ng-click="sortType = 'fullName'; sortReverse = !sortReverse">
+                        Name
+                        <span ng-show="sortType == 'fullName' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'fullName' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'mobile'; sortReverse = !sortReverse">
+                        Phone  Number
+                        <span ng-show="sortType == 'mobile' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'mobile' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'documentNumber'; sortReverse = !sortReverse">
+                        Id Number
+                        <span ng-show="sortType == 'documentNumber' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'documentNumber' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'type'; sortReverse = !sortReverse">
+                        Account Type
+                        <span ng-show="sortType == 'type' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'type' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'status'; sortReverse = !sortReverse">
+                        Status
+                        <span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'startDate'; sortReverse = !sortReverse">
+                        On boarding date
+                        <span ng-show="sortType == 'startDate' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'startDate' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                        Action
+                        <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="data: ${all}" >
+                <td th:text="${data.fullName}"></td>
+                <td th:text="${data.mobile}"></td>
+                <td th:text="${data.documentNumber}"></td>
+                <td th:text="${data.type}"></td>
+                <td th:text="${data.status}"></td>
+                <td th:text="${data.startDate}"></td>
+                <td><a style="color: #4651ab" th:href="${'/details/' + data.mobile}">Details</a></td>
+            </tr>
+            </tbody>
+
+        </table>
+        <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+        <script  src="js/index.js"></script>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

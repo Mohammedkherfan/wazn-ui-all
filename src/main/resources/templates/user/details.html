@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>User</title>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/noui/nouislider.min.js"></script>
+    <!--===============================================================================================-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+</head>
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <h1>Details Page</h1>
+        <p><a style="color: #4651ab" href="/" th:href="@{/}">Back to home page</a></p>
+
+
+
+
+
+
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form class="contact100-form validate-form" th:action="@{/save}" method="post" modelAttribute="save">
+				<span class="contact100-form-title">
+					Account Details
+				</span>
+
+                    <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="width:250px height:250px">
+                        <span class="label-input100">Entered On *</span>
+                        <input class="input100" type="text" name="enteredOn" id="enteredOn" th:value="${all.enteredOn}" readonly>
+                        <span class="label-input100">Location *</span>
+                        <input class="input100" type="text" name="location" id="location" th:value="${all.location}" readonly>
+                        <span class="label-input100">Entered By *</span>
+                        <input class="input100" type="text" name="enteredBy" id="enteredBy" th:value="${all.enteredBy}" readonly>
+                    </div>
+
+                    <div class="wrap-input100 bg1 rs1-wrap-input100" style="width:500px height:250px">
+                        <img id="personalImage" name="personalImage" th:src="${'data:image/png;base64,'+all.personalImage}" />
+                    </div>
+
+
+
+
+
+                    <div class="wrap-input100 validate-input bg1">
+                        <span class="label-input100">Document Bearer *</span>
+                        <input class="input100" type="text" id="fullName" name="fullName" th:value="${all.fullName}" readonly>
+                        <span class="label-input100">Date Of Birth *</span>
+                        <input class="input100" type="text" id="birthDate" name="birthDate" th:value="${all.birthDate}" readonly>
+                        <span class="label-input100">Gender *</span>
+                        <input class="input100" type="text" id="gender" name="gender" th:value="${all.gender}" readonly>
+                        <span class="label-input100">Nationality *</span>
+                        <input class="input100" type="text" id="nationality" name="nationality" th:value="${all.nationality}" readonly>
+                        <span class="label-input100">Reg. Nr. *</span>
+                        <input class="input100" type="text" id="regNumber" name="regNumber" th:value="${all.regNumber}" readonly>
+                        <span class="label-input100">Personal Number *</span>
+                        <input class="input100" type="text" id="personalNumber" name="personalNumber" th:value="${all.personalNumber}" readonly>
+                        <span class="label-input100">Number *</span>
+                        <input class="input100" type="text" id="mobile" name="mobile" th:value="${all.mobile}" readonly>
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1">
+                        <span class="label-input100">Document Type *</span>
+                        <input class="input100" type="text" id="documentType" name="documentType" th:value="${all.documentType}" readonly>
+                        <span class="label-input100">Document Number  *</span>
+                        <input class="input100" type="text" id="documentNumber" name="documentNumber" th:value="${all.documentNumber}" readonly>
+                        <span class="label-input100">Issuing Country *</span>
+                        <input class="input100" type="text" id="issuingCountry" name="issuingCountry" th:value="${all.issuingCountry}" readonly>
+                        <span class="label-input100">Valid Through *</span>
+                        <input class="input100" type="text" id="validThrough" name="validThrough" th:value="${all.validThrough}" readonly>
+                        <span class="label-input100">Own Comment *</span>
+                        <input class="input100" type="text" id="ownComment" name="ownComment" th:value="${all.ownComment}" readonly>
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1" >
+                        <span class="label-input100">Assessment Document Bearer *</span>
+                        <input class="input100" type="text" id="assessmentDocumentBearer" name="assessmentDocumentBearer" th:value="${all.assessmentDocumentBearer}" readonly>
+                        <span class="label-input100">Face Match *</span>
+                        <input class="input100" type="text" id="faceMatch" name="faceMatch" th:value="${all.faceMatch}" readonly>
+                        <span class="label-input100">Check MRZ *</span>
+                        <input class="input100" type="text" id="readonly" name="readonly" th:value="${all.checkMRZ}" readonly>
+                        <span class="label-input100">Automation Authentications *</span>
+                        <input class="input100" type="text" id="automationAuthentications" name="automationAuthentications" th:value="${all.automationAuthentications}" readonly>
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="height:250px; width:400px">
+                        <img id="documentIdImageFace" name="documentIdImageFace" th:src="${'data:image/png;base64,'+all.documentIdImageFace}" />
+                    </div>
+
+                    <div class="wrap-input100 bg1 rs1-wrap-input100" style="height:250px; width:400px">
+                        <img id="documentIdImageBack" name="documentIdImageBack" th:src="${'data:image/png;base64,'+all.documentIdImageBack}" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1">
+                        <span class="label-input100">Meeting Date *</span>
+                        <input class="input100" id="startDate" type="text" name="startDate" th:value="${all.startDate}" readonly>
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1" >
+                        <span class="label-input100">Passport:</span>
+                        <a class="input100" id="passportOrVisaImage" name="passportOrVisaImage" href="${'data:image/png;base64,'+all.passportOrVisaImage}" download>download</a>
+                        <span class="label-input100">Salary Certificate:</span>
+                        <a class="input100" id="salaryCertificateImage" name="salaryCertificateImage" href="${'data:image/png;base64,'+all.salaryCertificateImage}" download>download</a>
+                        <span class="label-input100">Tax Declaration:</span>
+                        <a class="input100" id="taxDeclarationImage" name="taxDeclarationImage" href="${'data:image/png;base64,'+all.taxDeclarationImage}" download>download</a>
+                    </div>
+
+                    <div class="wrap-input100 validate-input bg1" >
+                        <span class="label-input100">Review Officer Comment *</span>
+                        <textarea class="input100" id="helpDeskComment" name="helpDeskComment" th:value="${all.helpDeskComment}" ></textarea>
+                    </div>
+
+                    <div class="container-contact100-form-btn">
+                        <div> <a th:href="${'/status/'+all.mobile+'/1'}" class="contact100-form-btn">Approve</a></div>
+                        <div><a th:href="${'/status/'+all.mobile+'/3'}" class="contact100-form-btn">Reject</a></div>
+                        <div><button class="contact100-form-btn">
+						<span>
+							Save
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                        </button></div>
+                    </div>
+                </form>
+            </div>
+            <script  src="js/index.js"></script>
+        </div>
+
+    </div>
+
+</body>
+</html>

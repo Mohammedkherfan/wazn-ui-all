@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:th="http://www.thymeleaf.org"
+	  layout:decorate="~{fragments/layout}">
+<head>
+	<script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style>
+body {
+	display: flex;
+	height: 100vh;
+	margin: 0;
+	align-items: center;
+	justify-content: center;
+	padding: 0 50px;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+video {
+	max-width: calc(120% - 100px);
+	margin: 0 50px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	padding: 0;
+	box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px,
+		rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px
+		8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2)
+		0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
+}
+
+.copy {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.5);
+}
+</style>
+	<title>Meeting</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+	<h1>Meeting Page</h1>
+	<p><a style="color: #4651ab" href="/" th:href="@{/}">Back to home page</a></p>
+
+
+
+	<div c  lass="container" ng-app="sortApp" ng-controller="mainController">
+
+		<div class="limiter">
+			<div class="container">
+				<center>
+					<div class="col-lg-8 col-xs-12 col-centered">
+						<video width="100" height="80" id="localVideo" autoplay muted></video>
+					</div>
+					<div>
+						<video width="400" height="300" id="remoteVideo" autoplay></video>
+					</div>
+					<div align="center">
+						<button class="login100-form-btn" onclick="end()">End</button>
+					</div>
+				</center>
+			</div>
+		</div>
+
+
+
+		<!---->
+		<script src="js/script.js"></script>
+
+	</div>
+
+
+</div>
+
+
+</body>
+</html>

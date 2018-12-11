@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Edit Admin</title>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/noui/nouislider.min.js"></script>
+    <!--===============================================================================================-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Edit Admin Page</h1>
+    <p><a style="color: #4651ab" href="/" th:href="@{/}">Back to home page</a></p>
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+            <form class="contact100-form validate-form" th:action="@{/editAdmin}" method="post" modelAttribute="updateUserRequest">
+				<span class="contact100-form-title">
+					Edit Admin Details
+				</span>
+
+                <div class="wrap-input100 input100-select bg1">
+                    <span class="label-input100">User Name *</span>
+                    <input class="input100" type="text" name="userName" id="userName" th:value="${all.userName}" readonly>
+                    <span class="label-input100">Password *</span>
+                    <input class="input100" type="password" name="password" id="password" th:value="${all.password}">
+                    <span class="label-input100">Full Name *</span>
+                    <input class="input100" type="text" name="fullName" id="fullName" th:value="${all.fullName}">
+                    <span class="label-input100">Business Unit *</span>
+                    <input class="input100" type="text" name="businessUnit" id="businessUnit" th:value="${all.businessUnit}">
+                    <span class="label-input100">Phone Number *</span>
+                    <input class="input100" type="text" name="phoneNumber" id="phoneNumber" th:value="${all.phoneNumber}">
+                    <span class="label-input100">Address *</span>
+                    <input class="input100" type="text" name="address" id="address" th:value="${all.address}">
+                    <span class="label-input100">Email *</span>
+                    <input class="input100" type="text" name="email" id="email" th:value="${all.email}">
+                </div>
+                <div class="wrap-input100 input100-select bg1">
+                    <span class="label-input100">Role *</span>
+                    <div>
+                        <select class="input100" name="role" th:value="${all.role}">
+                            <option value="1">Admin</option>
+                            <option value="3">Approval Officer</option>
+                            <option value="2">Review Officer</option>
+                        </select>
+                        <div class="dropDownSelect2"></div>
+                    </div>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn">
+						<span>
+							Save
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <script  src="js/index.js"></script>
+    </div>
+
+</div>
+
+</body>
+</html>
