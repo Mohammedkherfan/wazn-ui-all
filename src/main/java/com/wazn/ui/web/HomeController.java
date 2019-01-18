@@ -3,6 +3,7 @@ package com.wazn.ui.web;
 import com.wazn.ui.model.*;
 import com.wazn.ui.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,9 @@ public class HomeController {
     public HomeController(HomeService service) {
         this.service = service;
     }
+
+    @Value( "${videoUrl}" )
+    private String videoUrl;
 
     @GetMapping("/")
     public ModelAndView root() {
@@ -147,10 +151,12 @@ public class HomeController {
     public ModelAndView checkMeeting(@PathVariable String mobile) {
         ModelAndView modelAndView = new ModelAndView();
         Boolean checkMeeting = service.checkMeeting(mobile);
-        if (checkMeeting)
+        if (checkMeeting) {
+            modelAndView.addObject("videoUrl", videoUrl);
             modelAndView.setViewName("user/startMeeting");
-        else
+        }else {
             modelAndView.setViewName("/error/access-denied-meeting");
+        }
         return modelAndView;
     }
 
