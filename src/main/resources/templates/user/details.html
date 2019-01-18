@@ -75,8 +75,8 @@
                         <input class="input100" type="text" name="enteredBy" id="enteredBy" th:value="${all.enteredBy}" readonly>
                     </div>
 
-                    <div class="wrap-input100 bg1 rs1-wrap-input100" style="width:500px height:250px">
-                        <img id="personalImage" name="personalImage" th:src="${'data:image/png;base64,'+all.personalImage}" />
+                    <div class="wrap-input100 bg1 rs1-wrap-input100" style="width:400px height:250px">
+                        <img id="personalImage" name="personalImage" width="400" height="250" th:src="${'data:image/png;base64,'+all.personalImage}" />
                     </div>
 
 
@@ -125,11 +125,11 @@
                     </div>
 
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="height:250px; width:400px">
-                        <img id="documentIdImageFace" name="documentIdImageFace" th:src="${'data:image/png;base64,'+all.documentIdImageFace}" />
+                        <img id="documentIdImageFace" name="documentIdImageFace" width="400" height="250" th:src="${'data:image/png;base64,'+all.documentIdImageFace}" />
                     </div>
 
                     <div class="wrap-input100 bg1 rs1-wrap-input100" style="height:250px; width:400px">
-                        <img id="documentIdImageBack" name="documentIdImageBack" th:src="${'data:image/png;base64,'+all.documentIdImageBack}" />
+                        <img id="documentIdImageBack" name="documentIdImageBack" width="400" height="250" th:src="${'data:image/png;base64,'+all.documentIdImageBack}" />
                     </div>
 
                     <div class="wrap-input100 validate-input bg1">
@@ -139,11 +139,11 @@
 
                     <div class="wrap-input100 validate-input bg1" >
                         <span class="label-input100">Passport:</span>
-                        <a class="input100" id="passportOrVisaImage" name="passportOrVisaImage" href="${'data:image/png;base64,'+all.passportOrVisaImage}" download>download</a>
+                        <a class="input100" id="passportOrVisaImage" name="passportOrVisaImage" download="passportOrVisaImage.png" href="${'data:image/png;base64,'+all.passportOrVisaImage}" >download</a>
                         <span class="label-input100">Salary Certificate:</span>
-                        <a class="input100" id="salaryCertificateImage" name="salaryCertificateImage" href="${'data:image/png;base64,'+all.salaryCertificateImage}" download>download</a>
+                        <a class="input100" id="salaryCertificateImage" name="salaryCertificateImage" download="salaryCertificateImage.png" href="${'data:image/png;base64,'+all.salaryCertificateImage}" download>download</a>
                         <span class="label-input100">Tax Declaration:</span>
-                        <a class="input100" id="taxDeclarationImage" name="taxDeclarationImage" href="${'data:image/png;base64,'+all.taxDeclarationImage}" download>download</a>
+                        <a class="input100" id="taxDeclarationImage" name="taxDeclarationImage" download="taxDeclarationImage.png" href="${'data:image/png;base64,'+all.taxDeclarationImage}" download>download</a>
                     </div>
 
                     <div class="wrap-input100 validate-input bg1" >
