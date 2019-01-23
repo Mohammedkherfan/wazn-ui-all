@@ -66,6 +66,7 @@
 					Account Details
 				</span>
 
+
                     <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="width:250px height:250px">
                         <span class="label-input100">Entered On *</span>
                         <input class="input100" type="text" name="enteredOn" id="enteredOn" th:value="${all.enteredOn}" readonly>
@@ -75,8 +76,9 @@
                         <input class="input100" type="text" name="enteredBy" id="enteredBy" th:value="${all.enteredBy}" readonly>
                     </div>
 
-                    <div class="wrap-input100 bg1 rs1-wrap-input100" style="width:400px height:250px">
+                    <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" style="width:250px height:250px">
                         <img id="personalImage" name="personalImage" width="400" height="250" th:src="${'data:image/png;base64,'+all.personalImage}" />
+                  <img id="selfImage" name="personalImage" width="400" height="250" th:src="${'data:image/png;base64,'+all.selfImage}" />
                     </div>
 
 
@@ -84,7 +86,7 @@
 
 
                     <div class="wrap-input100 validate-input bg1">
-                        <span class="label-input100">Document Bearer *</span>
+                        <span class="label-input100">Username *</span>
                         <input class="input100" type="text" id="fullName" name="fullName" th:value="${all.fullName}" readonly>
                         <span class="label-input100">Date Of Birth *</span>
                         <input class="input100" type="text" id="birthDate" name="birthDate" th:value="${all.birthDate}" readonly>
