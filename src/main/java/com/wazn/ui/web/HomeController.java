@@ -93,6 +93,7 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView();
         List<GetAllDataResponse> all = service.getAll();
         modelAndView.addObject("all",all);
+        modelAndView.addObject("videoUrl", videoUrl);
         modelAndView.setViewName("user/meeting");
         return modelAndView;
     }
