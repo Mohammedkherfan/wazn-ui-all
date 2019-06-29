@@ -141,11 +141,11 @@
 
                     <div class="wrap-input100 validate-input bg1" >
                         <span class="label-input100">Passport:</span>
-                        <a class="input100" id="passportOrVisaImage" name="passportOrVisaImage" download="passportOrVisaImage.png" href="${'data:image/png;base64,'+all.passportOrVisaImage}" >download</a>
+                        <a class="input100" id="passportOrVisaImage" name="passportOrVisaImage" th:href="${'/download/'+all.mobile+'/4'}" >download</a>
                         <span class="label-input100">Salary Certificate:</span>
-                        <a class="input100" id="salaryCertificateImage" name="salaryCertificateImage" download="salaryCertificateImage.png" href="${'data:image/png;base64,'+all.salaryCertificateImage}">download</a>
+                        <a class="input100" id="salaryCertificateImage" name="salaryCertificateImage"  th:href="${'/download/'+all.mobile+'/6'}">download</a>
                         <span class="label-input100">Tax Declaration:</span>
-                        <a class="input100" id="taxDeclarationImage" name="taxDeclarationImage" download="taxDeclarationImage.png" href="${'data:image/png;base64,'+all.taxDeclarationImage}">download</a>
+                        <a class="input100" id="taxDeclarationImage" name="taxDeclarationImage" href="${'/download/'+all.mobile+'/5'}">download</a>
                     </div>
 
                     <div class="wrap-input100 validate-input bg1" >

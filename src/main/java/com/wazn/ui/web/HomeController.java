@@ -13,8 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.imageio.ImageIO;
+import javax.sql.rowset.serial.SerialBlob;
 import javax.validation.Valid;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.*;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 import static java.util.Objects.isNull;
 
@@ -22,6 +30,9 @@ import static java.util.Objects.isNull;
 public class HomeController {
 
     private HomeService service;
+
+    @Value("${download.url}")
+    private String downloadUrl;
 
     @Autowired
     public HomeController(HomeService service) {
@@ -141,8 +152,24 @@ public class HomeController {
 
     @GetMapping("/details/{mobile}")
     public ModelAndView details(@PathVariable String mobile) {
-        ModelAndView modelAndView = new ModelAndView();
+          ModelAndView modelAndView = new ModelAndView();
         GetAllDataResponse all = service.getAllById(mobile);
+        modelAndView.addObject("all",all);
+        modelAndView.setViewName("user/details");
+        return modelAndView;
+    }
+
+    @GetMapping("/download/{mobile}/{type}")
+    public ModelAndView download(@PathVariable String mobile, @PathVariable String type) throws SQLException, IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        byte[] data = service.downloadImage(mobile, type);
+
+        GetAllDataResponse all = service.getAllById(mobile);
+
+        FileOutputStream fout=new FileOutputStream(downloadUrl+"/"+ all.getFullName()+"-"+UUID.randomUUID().toString()+"image.jpg");
+        fout.write(data);
+        fout.close();
+
         modelAndView.addObject("all",all);
         modelAndView.setViewName("user/details");
         return modelAndView;

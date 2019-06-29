@@ -24,3 +24,6 @@ logging:
     org.springframework.security: INFO
 
 videoUrl: http://localhost:6060/
+
+download:
+  url: D:/

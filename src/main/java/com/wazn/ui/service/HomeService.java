@@ -2,13 +2,15 @@ package com.wazn.ui.service;
 
 import com.wazn.ui.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -71,5 +73,14 @@ public class HomeService {
     public void editAdminUser(UpdateUserRequest request) {
         String url = "http://localhost:6789/wazn/users/"+request.getUserName()+"/updateUser";
         UpdateUserResponse updateUserResponse = restTemplate.postForObject(url, request, UpdateUserResponse.class);
+    }
+
+    public byte[] downloadImage(String mobile, String type) throws IOException, SQLException {
+        String url = "http://localhost:6789/wazn/accounts/"+mobile+"/"+ type+"/download";
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("mobile", mobile);
+        map.put("type", type);
+        byte[] data = restTemplate.getForObject(url, byte[].class, map);
+        return data;
     }
 }
